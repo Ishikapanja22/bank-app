@@ -1,0 +1,13 @@
+const express = require("express");
+const router = express.Router();
+const {adminLogin,dashboard,getUsers,approveUser,deactivateUser,getLoans,approveLoan,rejectLoan,getTransactions,} = require("../controllers/adminController");
+router.post("/login", adminLogin);
+router.get("/dashboard", dashboard);
+router.get("/users", getUsers);
+router.put("/user/approve/:id", approveUser);
+router.put("/user/deactivate/:id", deactivateUser);
+router.get("/loans", getLoans);
+router.put("/loan/approve/:id", approveLoan);
+router.put("/loan/reject/:id", rejectLoan);
+router.get("/transactions", getTransactions);
+module.exports = router;

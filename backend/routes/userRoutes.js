@@ -1,0 +1,12 @@
+const express = require("express");
+const router = express.Router();
+const {registerUser,loginUser,getProfile,transferMoney,requestLoan,transactionHistory,getUserLoans,} = require("../controllers/userController");
+const authMiddleware = require("../middleware/authMiddleware");
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.get("/profile", authMiddleware, getProfile);
+router.post("/transfer", authMiddleware, transferMoney);
+router.post("/loan-request", authMiddleware, requestLoan);
+router.get("/my-loans", authMiddleware, getUserLoans);
+router.get("/transactions", authMiddleware, transactionHistory);
+module.exports = router;
